@@ -1,7 +1,22 @@
+/*
+
+Team Members: Jordan Guzman, Connor Murphy, Jacob Fallin, Jared Bass
+
+We pledge our honor that we have abided by the Stevens Honor System.
+
+*/
+body
+{
+   font-size: 1em;
+   font-family: 'Open Sans Condensed', sans-serif;
+   background: #E3F2FD;
+}
+
 #topContainer
 {
 	width:100%;
 	height:15%;
+	text-indent: 20px;
 	overflow:hidden;
 }
 
@@ -12,11 +27,11 @@
 	left:calc(15% + 10px);
 	width:calc(85% - 16px);
 	height:calc(85% - 6px);
-	background-color:rgb(125,150,175);
-	border: 3px dotted gray;
+	background-color:#E3F2FD;
+	overflow: hidden;
 }
 
-#iconDiv
+/* #iconDiv
 {
 	position: absolute;
 	top:0px;
@@ -24,26 +39,43 @@
 	height:15%;
 	width:calc(15% + 10px);
 	background-color: gray;
+  float: right;
+} */
+
+.logo 
+{
+	position: relative;
+	width: 100%;
 }
+
 
 #titlePanel
 {
 	position:absolute;
 	top: 0px;
-	left:calc(15% + 10px);
-	width:calc(85% - 20px);
+	width:calc(100% - 10px);
 	height:calc(15% - 10px);
 	padding-top:0px;
+	left: 3px;
+	right(20% - 10px);
 	line-height:0.5em;
 }
 
 #sidePanel
 {
 	position: absolute;
+	margin-top: 10px;
 	top: 15%;
 	left: 0px;
 	width:15%;
 	height: 60%;
+	overflow-y:scroll;
+	background: #E3F2FD;
+}
+
+#sideContainer
+{
+	background: #E3F2FD;
 }
 
 #bottomSidePanel
@@ -53,12 +85,363 @@
 	height:calc(25% - 20px);
 	left:0px;
 	width:15%;
+	text-indent: 10px;
+	overflow:hidden;
+}
+
+#rssHolder
+{
+    display: none;
+}
+
+#closeButton
+{
+    border: 5px solid gray;
+    border-radius: 25px;
+    display:none;
+    cursor: pointer;
+}
+
+#searchHolder
+{
+    display: none;
+}
+
+#aboutHolder
+{
+    display: none;
+    height: 100%;
+	width: 100%;
+	overflow-y:scroll;
+}
+
+#listHolder
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	overflow: hidden;
+}
+
+#searchedList
+{
+	overflow-y: scroll;
+	max-height: 100%;
+}
+
+#listHolder::-webkit-scrollbar 
+{ 
+    display: none; 
+}
+
+h1
+{
+	font-size: 4em;
+}
+.icon 
+{
+	float: right;
+	margin-right: 10px;
+	margin-top: 25px;
+	overflow: hidden;
+}
+.logo 
+{
+	position: absolute;
+	
+}
+.ack
+{
+	padding-left: 20px;
+}
+
+.groupSearch
+{
+	padding-left: 10px;
+}
+
+.phrase
+{
+	
+	position: absolute;	
+	font-size: 1.5em;
+	
+}
+
+.mainTitle
+{
+	position: absolute;
+	font-size: 4em;
+	font-weight: bold;
 }
 
 .panel
 {
-	background-color: rgb(112,128,144);
+	background-color: #2196F3;
 	border-style:groove;
 	border-width:5px;
 	border-color:rgb(100,145,123);
+}
+
+.button
+{
+	border: 1px solid #00f;
+	background: #2196F3;
+	width: 100%;
+	height: 33%;
+	cursor: pointer;
+}
+
+.savedFeed
+{
+	border: 1px solid black;
+	width:99%;
+	height:40%;
+	margin-bottom:2px;
+}
+
+.rssFeed
+{
+	text-indent: 20px;
+	margin-top: 10px;
+    border: 3px solid black;
+    border-radius: 3px;
+    height: calc(20% + 5px);
+    background-color: #BBDEFB;
+}
+
+.about
+{
+	padding-left: 10px;
+    text-indent: 20px;
+    border: 3px solid black;
+    border-radius: 3px;
+    height: 25%;
+	margin-top: 10px;
+}
+
+.rssTitle
+{
+    font-family: sans-serif;
+    font-size: 36px;
+    height: 100%;
+}
+
+.savedFeed
+{
+	background: #E3F2FD;
+	cursor: pointer;
+}
+
+.feed
+{
+    cursor: pointer;
+}
+
+.button a 
+{
+	margin-top: 10px;
+    text-decoration: none;
+}
+
+a:visited 
+{
+	color: black;
+}
+
+.overlay
+{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target 
+{
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup 
+{
+  margin: 70px auto;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+
+}
+
+.popup .close {
+  position: absolute;
+  top: 30px;
+  text-decoration: none;
+  right: 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+}
+
+.popup .content 
+{
+  height: 30%;
+}
+
+.addFeed 
+{ 
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #FFFFFF;
+}
+
+.addFeed input[type="text"],
+.addFeed input[type="date"],
+.addFeed input[type="search"],
+.addFeed input[type="url"],
+.addFeed select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+	font-size: .75em;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #dddddd;
+    background: transparent;
+    margin-bottom: 10px;
+    color: black;
+    height: 45px;
+}
+
+.addFeed input[type="button"],
+.addFeed input[type="submit"]{
+
+    background-color: #2196F3;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+	font-size: .75em;
+    padding: 8px 18px;
+    text-decoration: none;
+}
+
+.groupSearch
+{
+	font-size: 24px;
+	cursor: pointer;
+}
+
+#savedFeedList
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width:480px) and (min-width:375px)
+{
+	#topContainer
+	{
+		display: none;
+	}
+	
+	#mainContainer
+	{
+		position: absolute;
+		top:10%;
+		left: 0px;
+		height: 90%;
+		width:100%;
+	}
+	
+	#sidePanel
+	{
+		position: absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:10%;
+		max-height:10%.
+		overflow-x: auto;
+	}
+	
+	.savedFeed
+	{
+		width: auto;
+		max-height: 10%;
+		height: auto;
+		float: left;
+		display: inline;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.groupSearch
+	{
+		font-size: 12px;
+	}
+	
+	#bottomSidePanel
+	{
+		display: none;
+	}
+}
+@media screen and (max-width:375px)
+{
+	#topContainer
+	{
+		display: none;
+	}
+	
+	#mainContainer
+	{
+		position: absolute;
+		top:10%;
+		left: 0px;
+		height: 90%;
+		width:100%;
+	}
+	
+	#sidePanel
+	{
+		position: absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:10%;
+		max-height:10%.
+		overflow-x: auto;
+	}
+	
+	.savedFeed
+	{
+		width: auto;
+		max-height: 10%;
+		height: auto;
+		float: left;
+		display: inline;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.groupSearch
+	{
+		font-size: 11px;
+	}
+	
+	#bottomSidePanel
+	{
+		display: none;
+	}
 }
